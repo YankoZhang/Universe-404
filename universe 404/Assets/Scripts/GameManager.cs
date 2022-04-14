@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject myCanvas;
     public GameObject Flowchart_Enter3D;
-    public GameObject BBGM;
+    
    
     /// <summary>
     /// 3D 场景中，找到目标的时间限制
@@ -55,6 +55,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public List<string> TriggeredFlowcharts;
 
+    /// <summary>
+    /// 穿越到3D世界的次数
+    /// </summary>
+    public int Switch3Dcount = 0;
+
     Text _textTimer;
     Text _textShard;
     float _timeLeft = 30f;
@@ -71,18 +76,17 @@ public class GameManager : MonoBehaviour
     public bool isOver_444;
     public bool isOver_555;
     public bool isOver_666;
-    public bool isOver_777;
+    public bool shineOver;
 
     /// <summary>
     /// 拾取物体后的效果
     /// </summary>
     public bool canJump;
     public bool canBBGM;
+    public bool canLight;
 
 
 
-
-    public Flowchart flowchart_111;
     private void Start()
     {
         CollectedShards = new List<String>();
@@ -105,10 +109,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(myCanvas);
         DontDestroyOnLoad(Flowchart_Enter3D);
-        DontDestroyOnLoad(BBGM);
-
-
-
+        
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         // SceneManager.sceneUnloaded += OnSceneUnloaded;
@@ -128,7 +129,7 @@ public class GameManager : MonoBehaviour
         if (!_transitionBegan && scene_name == "3D" )
         {
             _timeLeft -= Time.deltaTime;
-            if (_timeLeft <= 0 )
+            if (_timeLeft <= 0 || Interaction3D.canPick == false)
             {
                 Cursor.lockState = CursorLockMode.None;
                 GameObject.Find("Flowchart_Timeout").GetComponent<Flowchart>().ExecuteBlock("Start");
@@ -141,6 +142,7 @@ public class GameManager : MonoBehaviour
             Last2DPosition = Player.transform.position;
         }
 
+        /*
          Ray.pos  = new Vector3(Screen.width / 2.0f, Screen.height / 2.0f);
         //物品收集
         if (Ray.isComputer)
@@ -158,17 +160,50 @@ public class GameManager : MonoBehaviour
             Destroy(GameObject.Find("耐克"));
             PlayerController2D.m_JumpForce = 1000f;
         }
-      
-
-
-
-
-
-
-
+        */
 
         _textShard.text = " " + ShardCount;
     } 
+
+    /// <summary>
+    /// 收集 3D 物品后激活对应能力
+    /// </summary>
+    /// <param name="tag_name"></param>
+    public bool ActivateAbility(Transform obj)
+    {
+        var tag_name = obj.tag;
+        var picked = false;
+        if (tag_name == "computer")
+        {
+            picked = true;
+            canJump = true;
+        }
+        if (tag_name == "headset")
+        {
+            picked = true;
+            canBBGM = true;
+        }
+        if (tag_name == "Nike")
+        {
+            picked = true;
+            PlayerController2D.m_JumpForce = 1000f;
+        }
+        if(tag_name == "glasses")
+        {
+            picked = true;
+            canLight = true;
+        }
+
+
+
+
+        if (picked)
+        {
+            obj.gameObject.SetActive(false);
+        }
+
+        return picked;
+    }
    
 
     /// <summary>
@@ -188,16 +223,16 @@ public class GameManager : MonoBehaviour
 
 
         var total = CollectedShards.Count;
-
+        /*
         // 每 7 个碎片触发 Fungus 的对话和场景转换
-        //if (total % 7 == 0)
-        //{
-            //FlowChartSwitch(total);
-            //对话时角色无法行动
-            //Player = GameObject.FindGameObjectWithTag("Player");
-            //Player.GetComponent<PlayerMovement>().canMove = false;
-        //}
-
+        if (total % 7 == 0)
+        {
+            FlowChartSwitch(total);
+            对话时角色无法行动
+            Player = GameObject.FindGameObjectWithTag("Player");
+            Player.GetComponent<PlayerMovement>().canMove = false;
+        }
+        */
         FlowChartSwitch(CollectedShards.Count);
         
     }
@@ -223,7 +258,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Reload()
     {
+        // 不使用上次位置而返回检查点
+        Last2DPosition = Vector3.zero;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
     /// <summary>
@@ -245,14 +283,22 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "2D")
         {
+            // 2D 场景
+            Player = GameObject.FindGameObjectWithTag("Player");
+            _textShard = GameObject.Find("Text_Shard").GetComponent<Text>();
+
             if (canBBGM)
             {
                 GameObject.Find("Audio Source").GetComponent<AudioSource>().volume = 1;
             }
+            if (canLight)
+            {
+                GameObject.Find("Global Light 2D").SetActive(false);
+            }
             
-            // 2D 场景
-            Player = GameObject.FindGameObjectWithTag("Player");
-            _textShard = GameObject.Find("Text_Shard").GetComponent<Text>();
+
+
+
             // 还原碎片和对话进度
             foreach (Shard shard in FindObjectsOfType<Shard>())
             {
@@ -292,17 +338,34 @@ public class GameManager : MonoBehaviour
             {
                 GameObject.Find("Flowchart_222").SetActive(false);
             }
+            if (isOver_333)
+            {
+                GameObject.Find("Flowchart_333").SetActive(false);
+            }
+            if (isOver_444)
+            {
+                GameObject.Find("Flowchart_444").SetActive(false);
+            }
+            if (isOver_555)
+            {
+                GameObject.Find("Flowchart_555").SetActive(false);
+            }
+            if (isOver_666)
+            {
+                GameObject.Find("Flowchart_555").SetActive(false);
+            }
+           
 
         } else if (scene.name == "3D")
         {
             // 3D 场景
-
+            Switch3Dcount++;
             _transitionBegan = false;
             _timeLeft = FindObjectTime;
             _textTimer = GameObject.Find("Text_TimeLeft").GetComponent<Text>();
             ShardCount -= SpendCount;
             var image = GameObject.FindGameObjectWithTag("TargetCanvas").GetComponent<Image>();
-            image.sprite = TargetImages[CollectedShards.Count / 7];
+            image.sprite = TargetImages[Switch3Dcount - 1];
             //从2D来到3D时开启voluem；
             PlayerController2D.isDead = true;
         }
@@ -327,5 +390,5 @@ public class GameManager : MonoBehaviour
         }
         */
     }
-   
+
 }
