@@ -213,11 +213,7 @@ public class PlayerController2D : MonoBehaviour
 		{
 			GameManager.instance.isOver_666 = true;
 		}
-		if (collision.gameObject.name == "耀")
-		{
-			GameManager.instance.shineOver = true;
-		}
-
+	
 
 
 

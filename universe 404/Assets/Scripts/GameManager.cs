@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
 
 
 
-    public Flowchart flowchart_111;
     private void Start()
     {
         CollectedShards = new List<String>();
@@ -355,10 +354,7 @@ public class GameManager : MonoBehaviour
             {
                 GameObject.Find("Flowchart_555").SetActive(false);
             }
-            if (shineOver)
-            {
-                GameObject.Find("耀").SetActive(false);
-            }
+           
 
         } else if (scene.name == "3D")
         {
