@@ -12,10 +12,10 @@ public class Interaction3D : MonoBehaviour
     public GameObject computeOutline;
     public GameObject erjiOutline;
     public GameObject nikeOutline;
-
+    public GameObject glaOutline;
 
     public GameObject pickup;
-    public bool canPick = true;
+    public static bool canPick = true;
 
 
     //ÆÁÄ»²Î¿¼µãµÄÎ»ÖÃ
@@ -25,6 +25,7 @@ public class Interaction3D : MonoBehaviour
     void Start()
     {
         pos = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        canPick = true;
     }
 
     // Update is called once per frame
@@ -41,12 +42,15 @@ public class Interaction3D : MonoBehaviour
             var comp = _hittag == "computer" && canPick;
             var headphone = _hittag == "headset" && canPick;
             var nike = _hittag == "Nike" && canPick;
+            var glasses = _hittag == "glasses" && canPick;
+
 
             // 启用对应高亮
             computeOutline.SetActive(comp);
             erjiOutline.SetActive(headphone);
             nikeOutline.SetActive(nike);
-            pickup.SetActive(comp || headphone || nike);
+            glaOutline.SetActive(glasses);
+            pickup.SetActive(comp || headphone || nike || glasses);
 
             // 进行互动
             if (Input.GetKey(KeyCode.E))

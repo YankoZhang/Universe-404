@@ -9,7 +9,7 @@ public class CharacterLife : MonoBehaviour
     bool _dead = false;
     IEnumerator DoReload()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         GameManager.instance.Reload();
         _dead = false;
     }

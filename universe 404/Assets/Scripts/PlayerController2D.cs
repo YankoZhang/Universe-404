@@ -183,6 +183,8 @@ public class PlayerController2D : MonoBehaviour
 		if (collision.gameObject.tag == "Enemy")
 		{
 			m_Life.Hit(collision.gameObject);
+			anim.SetBool("isDead", true);
+			
 		}
 
 		
@@ -195,7 +197,26 @@ public class PlayerController2D : MonoBehaviour
 		{
 			GameManager.instance.isOver_222 = true;
 		}
-
+		if (collision.gameObject.name == "Flowchart_333")
+		{
+			GameManager.instance.isOver_333 = true;
+		}
+		if (collision.gameObject.name == "Flowchart_444")
+		{
+			GameManager.instance.isOver_444 = true;
+		}
+		if (collision.gameObject.name == "Flowchart_555")
+		{
+			GameManager.instance.isOver_555 = true;
+		}
+		if (collision.gameObject.name == "Flowchart_666")
+		{
+			GameManager.instance.isOver_666 = true;
+		}
+		if (collision.gameObject.name == "耀")
+		{
+			GameManager.instance.shineOver = true;
+		}
 
 
 
