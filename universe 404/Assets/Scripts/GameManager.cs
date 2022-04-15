@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -84,9 +84,9 @@ public class GameManager : MonoBehaviour
     public bool canJump;
     public bool canBBGM;
     public bool canLight;
-
-
-
+    public bool canBGM;
+    public bool canPlant;
+    public bool canShine;
     private void Start()
     {
         CollectedShards = new List<String>();
@@ -193,13 +193,22 @@ public class GameManager : MonoBehaviour
             picked = true;
             canLight = true;
         }
-
-
+        if(tag_name == "buletooth")
+        {
+            picked = true;
+            canBGM = true;
+        }
+        if (tag_name == "plant")
+        {
+            picked = true;
+            canPlant = true;
+        }
 
 
         if (picked)
         {
             obj.gameObject.SetActive(false);
+            
         }
 
         return picked;
@@ -285,7 +294,7 @@ public class GameManager : MonoBehaviour
         {
             // 2D 场景
             Player = GameObject.FindGameObjectWithTag("Player");
-            _textShard = GameObject.Find("Text_Shard").GetComponent<Text>();
+            _textShard = GameObject.Find("ShardText").GetComponent<Text>();
 
             if (canBBGM)
             {
@@ -295,9 +304,24 @@ public class GameManager : MonoBehaviour
             {
                 GameObject.Find("Global Light 2D").SetActive(false);
             }
-            
+            if (canBGM)
+            {
 
+            }
+            if (canPlant)
+            {
+                GameObject Plants = GameObject.Find("Plants");
+                GameObject Plant = Plants.transform.Find("Plant").gameObject;
+                Plant.SetActive(true);
+            }
 
+            if (canShine)
+            {
+                GameObject Shine_float = GameObject.Find("Shine_float");
+                GameObject Shine = Shine_float.transform.Find("float").gameObject;
+                Shine.SetActive(true);
+                GameObject.Find("耀").SetActive(false);
+            }
 
             // 还原碎片和对话进度
             foreach (Shard shard in FindObjectsOfType<Shard>())
@@ -352,13 +376,36 @@ public class GameManager : MonoBehaviour
             }
             if (isOver_666)
             {
-                GameObject.Find("Flowchart_555").SetActive(false);
+                GameObject.Find("Flowchart_666").SetActive(false);
             }
            
 
         } else if (scene.name == "3D")
         {
             // 3D 场景
+            if (canJump)
+            {
+                GameObject.Find("computer").SetActive(false);
+            }
+            if (canBBGM)
+            {
+                GameObject.Find("耳机").SetActive(false);
+            }
+            if (canLight)
+            {
+                GameObject.Find("耐克").SetActive(false);
+            }
+            if (canBGM)
+            {
+                GameObject.Find("眼镜").SetActive(false);
+            }
+            if (canPlant)
+            {
+                GameObject.Find("音响").SetActive(false);
+            }
+
+
+
             Switch3Dcount++;
             _transitionBegan = false;
             _timeLeft = FindObjectTime;

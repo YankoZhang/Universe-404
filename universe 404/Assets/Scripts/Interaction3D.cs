@@ -5,17 +5,19 @@ using Fungus;
 
 public class Interaction3D : MonoBehaviour
 {
- 
-    UnityEngine.Ray ray;
+
+    Ray ray;
     RaycastHit hit;
     //
     public GameObject computeOutline;
     public GameObject erjiOutline;
     public GameObject nikeOutline;
     public GameObject glaOutline;
+    public GameObject lanyaOutline;
+    public GameObject plantOutline;
 
     public GameObject pickup;
-    public static bool canPick = true;
+    public static bool canPick;
 
 
     //ÆÁÄ»²Î¿¼µãµÄÎ»ÖÃ
@@ -43,6 +45,8 @@ public class Interaction3D : MonoBehaviour
             var headphone = _hittag == "headset" && canPick;
             var nike = _hittag == "Nike" && canPick;
             var glasses = _hittag == "glasses" && canPick;
+            var lanya = _hittag == "buletooth" && canPick;
+            var plant_ = _hittag == "plant" && canPick;
 
 
             // 启用对应高亮
@@ -50,7 +54,9 @@ public class Interaction3D : MonoBehaviour
             erjiOutline.SetActive(headphone);
             nikeOutline.SetActive(nike);
             glaOutline.SetActive(glasses);
-            pickup.SetActive(comp || headphone || nike || glasses);
+            lanyaOutline.SetActive(lanya);
+            plantOutline.SetActive(plant_);
+            pickup.SetActive(comp || headphone || nike || glasses || lanya || plant_);
 
             // 进行互动
             if (Input.GetKey(KeyCode.E))

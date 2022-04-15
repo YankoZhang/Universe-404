@@ -6,6 +6,7 @@ public class RotateLaswer : MonoBehaviour
 {
     public Transform rayDirection;
     public LineRenderer lineRenderer;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +24,11 @@ public class RotateLaswer : MonoBehaviour
         {
             lineRenderer.SetPosition(1, hit.point);
         }
-        if(hit.collider.tag == "Player")
+        var characterLife = hit.collider.gameObject.GetComponent<CharacterLife>();
+        if (characterLife != null)
         {
-            Debug.Log("YOU DIED");
+            characterLife.Hit(gameObject);
+            anim.SetBool("isDead", true);
         }
     }
 
