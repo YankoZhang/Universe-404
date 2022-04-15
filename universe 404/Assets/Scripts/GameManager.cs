@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -208,7 +208,6 @@ public class GameManager : MonoBehaviour
         if (picked)
         {
             obj.gameObject.SetActive(false);
-            
         }
 
         return picked;
@@ -383,29 +382,6 @@ public class GameManager : MonoBehaviour
         } else if (scene.name == "3D")
         {
             // 3D 场景
-            if (canJump)
-            {
-                GameObject.Find("computer").SetActive(false);
-            }
-            if (canBBGM)
-            {
-                GameObject.Find("耳机").SetActive(false);
-            }
-            if (canLight)
-            {
-                GameObject.Find("耐克").SetActive(false);
-            }
-            if (canBGM)
-            {
-                GameObject.Find("眼镜").SetActive(false);
-            }
-            if (canPlant)
-            {
-                GameObject.Find("音响").SetActive(false);
-            }
-
-
-
             Switch3Dcount++;
             _transitionBegan = false;
             _timeLeft = FindObjectTime;

@@ -24,7 +24,11 @@ public class Laser : MonoBehaviour
         {
             lineRenderer.SetPosition(1, hit.point);
         }
-       
+        if (hit.collider.tag == "Player")
+        {
+            Debug.Log("YOU DIED");
+            
+        }
         var characterLife = hit.collider.gameObject.GetComponent<CharacterLife>();
         if (characterLife != null)
         {
