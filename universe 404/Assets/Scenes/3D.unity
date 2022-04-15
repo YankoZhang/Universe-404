@@ -40833,7 +40833,7 @@ GameObject:
   - component: {fileID: 4274626743571176352}
   - component: {fileID: 2329058167035427446}
   m_Layer: 0
-  m_Name: Plant_
+  m_Name: Plant
   m_TagString: plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

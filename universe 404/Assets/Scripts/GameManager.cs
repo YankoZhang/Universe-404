@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
     public bool canLight;
     public bool canBGM;
     public bool canPlant;
+    public bool canSuperJump;
     public bool canShine;
     private void Start()
     {
@@ -187,6 +188,7 @@ public class GameManager : MonoBehaviour
         {
             picked = true;
             PlayerController2D.m_JumpForce = 1000f;
+            canSuperJump = true;
         }
         if(tag_name == "glasses")
         {
@@ -393,15 +395,19 @@ public class GameManager : MonoBehaviour
             }
             if (canLight)
             {
-                GameObject.Find("耐克").SetActive(false);
+                GameObject.Find("眼镜").SetActive(false);
             }
             if (canBGM)
             {
-                GameObject.Find("眼镜").SetActive(false);
+                GameObject.Find("音响").SetActive(false);
+            }
+            if (canSuperJump)
+            {
+                GameObject.Find("耐克").SetActive(false);
             }
             if (canPlant)
             {
-                GameObject.Find("音响").SetActive(false);
+                GameObject.Find("Plant").SetActive(false);
             }
 
 

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2139887481235328326}
   - component: {fileID: 5571956398321774506}
-  - component: {fileID: 3427585886056185853}
+  - component: {fileID: 2346324331806907902}
+  - component: {fileID: 5244276379566047010}
   m_Layer: 0
   m_Name: "\u7EFF\u8272\u5C16\u523A"
   m_TagString: Enemy
@@ -83,8 +84,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3427585886056185853
-BoxCollider2D:
+--- !u!60 &2346324331806907902
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,6 +107,46 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.24125671, y: 0.0048418045}
+      - {x: -0.23578835, y: -0.12329769}
+      - {x: -0.0685339, y: -0.2260189}
+      - {x: 0.0495615, y: -0.23464823}
+      - {x: 0.09442139, y: -0.22601938}
+      - {x: 0.2877016, y: -0.2059865}
+      - {x: 0.28457355, y: 0.0028181076}
+      - {x: 0.034176826, y: 0.51286125}
+--- !u!60 &5244276379566047010
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994445320306906788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.24125671, y: 0.0048418045}
+      - {x: -0.23578835, y: -0.12329769}
+      - {x: -0.0685339, y: -0.2260189}
+      - {x: 0.0495615, y: -0.23464823}
+      - {x: 0.09442139, y: -0.22601938}
+      - {x: 0.2877016, y: -0.2059865}
+      - {x: 0.28457355, y: 0.0028181076}
+      - {x: 0.034176826, y: 0.51286125}
