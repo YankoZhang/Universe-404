@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserMove : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +23,12 @@ public class LaserMove : MonoBehaviour
         {
             lineRenderer.SetPosition(1, hit.point);
         }
-        if (hit.collider.tag == "Player")
+       
+        var characterLife = hit.collider.gameObject.GetComponent<CharacterLife>();
+        if (characterLife != null)
         {
-            Debug.Log("YOU DIED");
+            characterLife.Hit(gameObject);
+            anim.SetBool("isDead", true);
         }
     }
 }

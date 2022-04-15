@@ -6,7 +6,13 @@ using UnityEngine.Rendering.Universal;
 
 public class CharacterLife : MonoBehaviour
 {
-    bool _dead = false;
+     bool _dead = false;
+
+    //public AudioSource deadAudio;
+    private void Start()
+    {
+       // deadAudio.GetComponent<AudioSource>();
+    }
     IEnumerator DoReload()
     {
         yield return new WaitForSeconds(2f);
@@ -20,6 +26,7 @@ public class CharacterLife : MonoBehaviour
             return;
 
         // TODO: 死亡动画
+        //deadAudio.Play();
 
         _dead = true;
         StartCoroutine(DoReload());

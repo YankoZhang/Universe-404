@@ -5,6 +5,7 @@ using UnityEngine;
 public class Laser1 : MonoBehaviour
 {
     public LineRenderer lineRenderer;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,12 @@ public class Laser1 : MonoBehaviour
         if (hit)
         {
             lineRenderer.SetPosition(1, hit.point);
+        }
+        var characterLife = hit.collider.gameObject.GetComponent<CharacterLife>();
+        if (characterLife != null)
+        {
+            characterLife.Hit(gameObject);
+            anim.SetBool("isDead", true);
         }
     }
 

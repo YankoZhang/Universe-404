@@ -36,12 +36,13 @@ public class PlayerController2D : MonoBehaviour
 
 	public static bool isDead;
 	public static bool isFall;
-
+	
 
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		m_Life = GetComponent<CharacterLife>();
+
 	}
 
 
@@ -57,7 +58,7 @@ public class PlayerController2D : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 				m_Grounded = true;
 		}
-
+      
 
 	}
 	public void Move(float move, bool crouch, bool jump)
@@ -91,9 +92,11 @@ public class PlayerController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
+
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			
 		}
 	}
 
@@ -213,7 +216,11 @@ public class PlayerController2D : MonoBehaviour
 		{
 			GameManager.instance.isOver_666 = true;
 		}
-	
+		if (collision.gameObject.name == "Flowchart_shine_1")
+		{
+			GameManager.instance.canShine = true;
+		}
+
 
 
 

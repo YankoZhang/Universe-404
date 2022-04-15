@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -16,9 +17,14 @@ public class PlayerMovement : MonoBehaviour {
 	public Rigidbody2D myRigidbody2D;
 	public Animator anim;
 
+	//
+	//public AudioSource upAudio;
+	//public AudioSource fallAudio;
 	private void Start()
     {
 		myRigidbody2D = GetComponent<Rigidbody2D>();
+		//upAudio.GetComponent<AudioSource>();
+		//fallAudio.GetComponent<AudioSource>();
 	}
 
     // Update is called once per frame
@@ -40,6 +46,7 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			jump = true;
 			anim.SetBool("isJump", true);
+			//upAudio.Play();
 		}
 
 		if (Input.GetButtonDown("Crouch"))
