@@ -43,5 +43,6 @@ public class VolumeControl : MonoBehaviour
             canSwitch = true;
         }
     }
+
 }
 
