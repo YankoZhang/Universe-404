@@ -6,23 +6,26 @@ public class Door1InteractPressureKey : MonoBehaviour
 {
     public GameObject door;
     public bool doorIsOpening;
+    public Animator anim;
 
     void Update()
     {
-        if(doorIsOpening == true)
+        if(doorIsOpening)
         {
             door.transform.Translate(Vector3.up * Time.deltaTime * 5);
         }
-        if(door.transform.position.y > 7f)
+        if(door.transform.position.y > 8f)
         {
             doorIsOpening = false;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+   
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             doorIsOpening = true;
+            anim.SetBool("isPress", true);
         }
     }
 }
