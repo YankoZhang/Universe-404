@@ -22,6 +22,7 @@ TagManager:
   - glasses
   - buletooth
   - plant
+  - Fall
   layers:
   - Default
   - TransparentFX

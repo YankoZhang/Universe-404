@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+
     public static CameraShake Instance;
     // Start is called before the first frame update
 

@@ -248,5 +248,12 @@ public class PlayerController2D : MonoBehaviour
 			anim_break.SetBool("canBreak", false);
 		}
 
+
+		if(collision.gameObject.tag == "Fall")
+        {
+			m_Life.Hit(collision.gameObject);
+			anim.SetBool("isDead", true);
+		}
+
 	}
 }
