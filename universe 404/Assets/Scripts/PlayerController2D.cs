@@ -2,7 +2,7 @@
 using Fungus;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-
+using System.Collections.Generic;
 
 public class PlayerController2D : MonoBehaviour
 {
@@ -36,13 +36,15 @@ public class PlayerController2D : MonoBehaviour
 
 	public static bool isDead;
 	public static bool isFall;
-	
-
+	//粒子碰撞；
+	public ParticleSystem part;
+    public List<ParticleCollisionEvent> collisionEvents;
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		m_Life = GetComponent<CharacterLife>();
-
+		part = GetComponent<ParticleSystem>();
+		collisionEvents = new List<ParticleCollisionEvent>();
 	}
 
 
@@ -256,4 +258,9 @@ public class PlayerController2D : MonoBehaviour
 		}
 
 	}
+
+    private void OnParticleCollision(GameObject other)
+    {
+		Debug.Log("粒子碰撞");
+    }
 }

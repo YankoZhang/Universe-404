@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 using System;
 using Fungus;
 // namespace名称空间；
-public class GameManager : MonoBehaviour//继承   // class 类  数据类型  C# C C++面向对象；object 抽象 类；  实例
+public class GameManager : MonoBehaviour
 {
-    //static;
     public static GameManager instance;
     /// <summary>
     /// 目标 HUD 的图像
@@ -70,7 +69,7 @@ public class GameManager : MonoBehaviour//继承   // class 类  数据类型  C
     public bool isOver_switch;
     public bool isOver_111;
     public bool isOver_222;
-    public bool isOver_333;             //property;
+    public bool isOver_333;            
     public bool isOver_444;
     public bool isOver_555;
     public bool isOver_666;
@@ -86,30 +85,6 @@ public class GameManager : MonoBehaviour//继承   // class 类  数据类型  C
     public bool canPlant;
     public bool canSuperJump;
     public bool canShine;
-
-
-    //Method; 方法  函数   算法； 数据结构与算法
-    //两类
-    //   public/private  int/bool.../void     xxxxxx    ()
-
-    //   {
-    //
-    //   }    
-
-
-
-    //有返回值
-
-
-
-
-    //无返回值
-    
-    public int MyAdd(int a,int b)
-    {
-        int result = a + b;
-        return result;
-    }
 
     private void Start()
     {
