@@ -23,6 +23,10 @@ TagManager:
   - buletooth
   - plant
   - Fall
+  - defense
+  - playerAttack
+  - enemyAttack
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -36,15 +36,13 @@ public class PlayerController2D : MonoBehaviour
 
 	public static bool isDead;
 	public static bool isFall;
-	//粒子碰撞；
-	public ParticleSystem part;
-    public List<ParticleCollisionEvent> collisionEvents;
+	//攻击弹反；
+	public bool isAttack;
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		m_Life = GetComponent<CharacterLife>();
-		part = GetComponent<ParticleSystem>();
-		collisionEvents = new List<ParticleCollisionEvent>();
+		
 	}
 
 
@@ -63,7 +61,11 @@ public class PlayerController2D : MonoBehaviour
       
 
 	}
-	public void Move(float move, bool crouch, bool jump)
+    private void Update()
+    {
+		UpdateAttack();
+	}
+    public void Move(float move, bool crouch, bool jump)
 	{
 		if (!m_Life.Alive())
 			return;
@@ -258,9 +260,22 @@ public class PlayerController2D : MonoBehaviour
 		}
 
 	}
-
-    private void OnParticleCollision(GameObject other)
+	public void UpdateAttack()
     {
-		Debug.Log("粒子碰撞");
+        if (Input.GetMouseButtonDown(0))
+        {
+			GameObject defense = gameObject.transform.Find("盾").gameObject;
+			defense.SetActive(true);
+			isAttack = true;
+			Invoke("AttackEnd",0.333f);
+        }
     }
+	
+	public void AttackEnd()
+    {
+		GameObject defense = gameObject.transform.Find("盾").gameObject;
+		isAttack = false;
+		defense.SetActive(false);
+	}
+	
 }
