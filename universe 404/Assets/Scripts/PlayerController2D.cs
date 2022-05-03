@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Fungus;
+using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System.Collections.Generic;
@@ -64,6 +65,12 @@ public class PlayerController2D : MonoBehaviour
     private void Update()
     {
 		UpdateAttack();
+        if (isDead)
+        {
+			anim.SetBool("isDead", true);
+			isDead = false;
+			Invoke("DeadRemake", 1);
+		}
 	}
     public void Move(float move, bool crouch, bool jump)
 	{
@@ -191,7 +198,7 @@ public class PlayerController2D : MonoBehaviour
 		{
 			m_Life.Hit(collision.gameObject);
 			anim.SetBool("isDead", true);
-			
+			Debug.Log("死亡");
 		}
 
 		
@@ -278,4 +285,9 @@ public class PlayerController2D : MonoBehaviour
 		defense.SetActive(false);
 	}
 	
+	public void DeadRemake()
+    {
+		Destroy(gameObject);
+		SceneManager.LoadScene(1);
+	}
 }

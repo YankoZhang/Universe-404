@@ -29,7 +29,10 @@ public class FireBullet : MonoBehaviour
             Debug.Log("±»»÷ÖÐ");
             Debug.Log((attackPos.transform.position.x - transform.position.x, attackPos.transform.position.y - transform.position.y));
         }
-
+        if(collision.gameObject.tag == "Player")
+        {
+            PlayerController2D.isDead = true;
+        }
         
     }
 }
