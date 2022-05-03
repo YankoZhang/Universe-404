@@ -49,7 +49,7 @@ public class Boss : MonoBehaviour
 
     public void switchAttackType()
     {
-        attackType = Random.Range(0,9);
+        attackType = Random.Range(0,10);
         Debug.Log(attackType);
         if(attackType == 0 | attackType ==1 | attackType == 2)
         {
@@ -59,11 +59,15 @@ public class Boss : MonoBehaviour
         {
             bossAnim.Play("Ðý×ª");
         }
-        if (attackType == 6| attackType == 7 | attackType == 8)
+        if (attackType == 6| attackType == 7)
         {
-            bossAnim.Play("");
+            bossAnim.Play("´¥ÊÖ");
         }
-       
+        if (attackType == 8 | attackType == 9)
+        {
+            bossAnim.Play("´¥ÊÖ2");
+        }
+
     }
 
     public void TimeStopEnd()
