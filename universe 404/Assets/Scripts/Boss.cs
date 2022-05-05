@@ -11,6 +11,10 @@ public class Boss : MonoBehaviour
     public Animator bossAnim;
     public float attackType;
     public AudioSource bossAudio;
+    public AudioClip AttackClip;
+    public AudioClip DeadClip;
+    public static bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,13 @@ public class Boss : MonoBehaviour
     {
         if(Health <= 0)
         {
+            isDead = true;
+            if (bossAudio.clip != DeadClip)
+            {
+                bossAudio.clip = DeadClip;
+                bossAudio.Play();
+            }
+
             bossAnim.Play("ËÀÍö");
         }
     }
@@ -56,21 +67,25 @@ public class Boss : MonoBehaviour
         Debug.Log(attackType);
         if(attackType == 0 | attackType ==1 | attackType == 2)
         {
+            bossAudio.clip = AttackClip;
             bossAudio.Play();
             bossAnim.Play("»ðÇò¹¥»÷");
         }
         if (attackType == 3 | attackType == 4 | attackType == 5)
         {
+            bossAudio.clip = AttackClip;
             bossAudio.Play();
             bossAnim.Play("Ðý×ª");
         }
         if (attackType == 6| attackType == 7)
         {
+            bossAudio.clip = AttackClip;
             bossAudio.Play();
             bossAnim.Play("´¥ÊÖ");
         }
         if (attackType == 8 | attackType == 9)
         {
+            bossAudio.clip = AttackClip;
             bossAudio.Play();
             bossAnim.Play("´¥ÊÖ2");
         }
