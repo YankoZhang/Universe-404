@@ -43,8 +43,8 @@ Material:
     m_Floats:
     - ADDITIONAL_LIGHTS: 0
     - _SPECULAR: 1
-    - _Smoothness: 0.4
+    - _Smoothness: -0.06
     m_Colors:
-    - _DiffuseColor: {r: 0.2735849, g: 0.2502917, b: 0.21078081, a: 0}
+    - _DiffuseColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0}
     - _SpecularColour: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
