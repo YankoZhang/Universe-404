@@ -5,7 +5,6 @@ using UnityEngine;
 public class level_4 : MonoBehaviour
 {
     public float MD = 0.01f;
-    public float smooth;
     bool canRotation_1;
     bool canRotation_2;
     bool canRotation_4;
