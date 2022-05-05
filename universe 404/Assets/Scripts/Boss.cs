@@ -38,6 +38,7 @@ public class Boss : MonoBehaviour
     {
         if (collision.gameObject.tag == "playerAttack")
         {
+            bossAnim.Play("Κά»χ");
             Health--;
             Destroy(collision.gameObject);
             Time.timeScale = 0.1f;
