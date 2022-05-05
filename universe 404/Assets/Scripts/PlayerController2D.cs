@@ -37,8 +37,7 @@ public class PlayerController2D : MonoBehaviour
 
 	public static bool isDead;
 	public static bool isFall;
-	//攻击弹反；
-	public bool isAttack;
+	
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -269,11 +268,10 @@ public class PlayerController2D : MonoBehaviour
 	}
 	public void UpdateAttack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&GameManager.instance.canAttack)
         {
 			GameObject defense = gameObject.transform.Find("盾").gameObject;
 			defense.SetActive(true);
-			isAttack = true;
 			Invoke("AttackEnd",0.333f);
         }
     }
@@ -281,7 +279,6 @@ public class PlayerController2D : MonoBehaviour
 	public void AttackEnd()
     {
 		GameObject defense = gameObject.transform.Find("盾").gameObject;
-		isAttack = false;
 		defense.SetActive(false);
 	}
 	

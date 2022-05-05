@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     public bool canPlant;
     public bool canSuperJump;
     public bool canShine;
-
+    public bool canAttack;
     private void Start()
     {
         CollectedShards = new List<String>();
@@ -202,7 +202,11 @@ public class GameManager : MonoBehaviour
             picked = true;
             canPlant = true;
         }
-
+        if (tag_name == "Pan")
+        {
+            picked = true;
+            canAttack = true;
+        }
 
         if (picked)
         {

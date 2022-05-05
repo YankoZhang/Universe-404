@@ -15,6 +15,7 @@ public class Interaction3D : MonoBehaviour
     public GameObject glaOutline;
     public GameObject lanyaOutline;
     public GameObject plantOutline;
+    public GameObject PanOutline;
 
     public GameObject pickup;
     public static bool canPick;
@@ -47,6 +48,7 @@ public class Interaction3D : MonoBehaviour
             var glasses = _hittag == "glasses" && canPick;
             var lanya = _hittag == "buletooth" && canPick;
             var plant_ = _hittag == "plant" && canPick;
+            var pan = _hittag == "Pan" && canPick;
 
 
             // 启用对应高亮
@@ -56,7 +58,8 @@ public class Interaction3D : MonoBehaviour
             glaOutline.SetActive(glasses);
             lanyaOutline.SetActive(lanya);
             plantOutline.SetActive(plant_);
-            pickup.SetActive(comp || headphone || nike || glasses || lanya || plant_);
+            PanOutline.SetActive(pan);
+            pickup.SetActive(comp || headphone || nike || glasses || lanya || plant_ || pan);
 
             // 进行互动
             if (Input.GetKey(KeyCode.E))
