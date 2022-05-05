@@ -10,10 +10,12 @@ public class Boss : MonoBehaviour
     public int Health = 10;
     public Animator bossAnim;
     public float attackType;
+    public AudioSource bossAudio;
     // Start is called before the first frame update
     void Start()
     {
         bossAnim = GetComponent<Animator>();
+        bossAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,18 +56,22 @@ public class Boss : MonoBehaviour
         Debug.Log(attackType);
         if(attackType == 0 | attackType ==1 | attackType == 2)
         {
+            bossAudio.Play();
             bossAnim.Play("»ðÇò¹¥»÷");
         }
         if (attackType == 3 | attackType == 4 | attackType == 5)
         {
+            bossAudio.Play();
             bossAnim.Play("Ðý×ª");
         }
         if (attackType == 6| attackType == 7)
         {
+            bossAudio.Play();
             bossAnim.Play("´¥ÊÖ");
         }
         if (attackType == 8 | attackType == 9)
         {
+            bossAudio.Play();
             bossAnim.Play("´¥ÊÖ2");
         }
 
