@@ -34747,9 +34747,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15625168, y: -0.00000769792}
+  m_Offset: {x: 0.06950424, y: -0.11383341}
   serializedVersion: 2
-  m_Radius: 1.4062483
+  m_Radius: 1.717438
 --- !u!1 &1234845066
 GameObject:
   m_ObjectHideFlags: 0
@@ -136586,6 +136586,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2334468761838475438, guid: 3461a488289ee4d41b7fc13e4e254bc1,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 15e93aa7ba26923418ac7e00f856fcba,
+        type: 3}
+    - target: {fileID: 2334468761838475438, guid: 3461a488289ee4d41b7fc13e4e254bc1,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -136601,8 +136607,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3400474595143176410, guid: 3461a488289ee4d41b7fc13e4e254bc1,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.24090922
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400474595143176410, guid: 3461a488289ee4d41b7fc13e4e254bc1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.24111861
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400474595143176410, guid: 3461a488289ee4d41b7fc13e4e254bc1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4126633
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400474595143176410, guid: 3461a488289ee4d41b7fc13e4e254bc1,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.004
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400474595143176410, guid: 3461a488289ee4d41b7fc13e4e254bc1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.162
       objectReference: {fileID: 0}
     - target: {fileID: 5873767018397184487, guid: 3461a488289ee4d41b7fc13e4e254bc1,
         type: 3}
