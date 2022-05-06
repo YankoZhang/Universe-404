@@ -86,6 +86,12 @@ public class GameManager : MonoBehaviour
     public bool canSuperJump;
     public bool canShine;
     public bool canAttack;
+
+    //门
+    public bool doorIsOpen_1;
+    public bool doorIsOpen_2;
+    public bool doorIsOpen_3;
+    public bool doorIsOpen_4;
     private void Start()
     {
         CollectedShards = new List<String>();
@@ -354,6 +360,24 @@ public class GameManager : MonoBehaviour
                     }
 
                 }
+            }
+            if (doorIsOpen_1)
+            {
+                Debug.Log("111");
+                Destroy(GameObject.Find("key_1"));
+            }
+            if (doorIsOpen_2)
+            {
+                Destroy(GameObject.Find("key_2"));
+            }
+            if (doorIsOpen_3)
+            {
+                Destroy(GameObject.Find("key_3"));
+                Destroy(GameObject.Find("Door_2"));
+            }
+            if (doorIsOpen_4)
+            {
+                Destroy(GameObject.Find("Door_4"));
             }
 
             if (isOver_111)

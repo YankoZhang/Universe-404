@@ -230,7 +230,10 @@ public class PlayerController2D : MonoBehaviour
 		{
 			GameManager.instance.canShine = true;
 		}
-
+		if (collision.gameObject.name == "Flowchart_Door_2")
+		{
+			GameManager.instance.doorIsOpen_4 = true;
+		}
 
 
 
