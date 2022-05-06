@@ -16,15 +16,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	public Rigidbody2D myRigidbody2D;
 	public Animator anim;
-
-	//
-	//public AudioSource upAudio;
-	//public AudioSource fallAudio;
+	public bool canPlayRunClip;
+	public AudioSource PlayerAudio;
+	public AudioClip runClip;
+	public AudioClip jumpClip;
 	private void Start()
     {
 		myRigidbody2D = GetComponent<Rigidbody2D>();
-		//upAudio.GetComponent<AudioSource>();
-		//fallAudio.GetComponent<AudioSource>();
+		PlayerAudio.GetComponent<AudioSource>();
 	}
 
     // Update is called once per frame
@@ -46,7 +45,21 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			jump = true;
 			anim.SetBool("isJump", true);
-			//upAudio.Play();
+			if (GameManager.instance.canBBGM)
+			{
+				PlayerAudio.clip = jumpClip;
+				PlayerAudio.Play();
+				PlayerAudio.volume = 0.5f;
+			}
+		}
+		if (PlayerController2D.m_Grounded && canPlayRunClip && PlayerAudio.isPlaying == false && GameManager.instance.canBBGM)
+		{
+			if((PlayerAudio.clip != runClip))
+			{
+				PlayerAudio.clip = runClip;
+			}
+			
+			PlayerAudio.Play();
 		}
 
 		if (Input.GetButtonDown("Crouch"))
@@ -67,10 +80,12 @@ public class PlayerMovement : MonoBehaviour {
 		jump = false;
         if (horizontalMove != 0)
         {
+			canPlayRunClip = true;
 			anim.SetBool("isRun", true);
 		}
 		else
         {
+			canPlayRunClip = false;
 			anim.SetBool("isRun", false);
 		}
 

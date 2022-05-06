@@ -12,6 +12,9 @@ public class level_4 : MonoBehaviour
     bool canRotation_4;
     bool canMove_5a;
     bool canRotation_6;
+    bool canMove_7;
+    bool canMove_8;
+    bool canMove_9;
     bool canMove_hit;
     bool canRotation_e1;
     float e1 = 0;
@@ -23,6 +26,10 @@ public class level_4 : MonoBehaviour
     float e4 = 0;
     bool canRotation_e5;
     bool canRotation_e6;
+    bool canBreak_1;
+    bool canBreak_2;
+    bool canBreak_3;
+    bool canBreak_4;
     public AudioSource hitAudio;
     // Start is called before the first frame update
     void Start()
@@ -87,6 +94,33 @@ public class level_4 : MonoBehaviour
                 canMove_5a = false;
             }
         }
+        if (canMove_7)
+        {
+            GameObject Spike = GameObject.Find("平移_7");
+            Spike.transform.Translate(Vector3.up * Time.deltaTime);
+            if (Spike.transform.position.y >= -83)
+            {
+                canMove_7 = false;
+            }
+        }
+        if (canMove_8)
+        {
+            GameObject Spike = GameObject.Find("平移_8");
+            Spike.transform.Translate(Vector3.down * Time.deltaTime);
+            if (Spike.transform.position.y <= -90)
+            {
+                canMove_8 = false;
+            }
+        }
+        if (canMove_9)
+        {
+            GameObject Spike = GameObject.Find("平移_9");
+            Spike.transform.Translate(Vector3.up * Time.deltaTime);
+            if (Spike.transform.position.y >= -74.5)
+            {
+                canMove_9 = false;
+            }
+        }
         if (canMove_hit)
         {
           
@@ -102,6 +136,27 @@ public class level_4 : MonoBehaviour
             }
            
         }
+        if (canBreak_1)
+        {
+            GameObject Spike = GameObject.Find("break_1");
+            Destroy(Spike);
+        }
+        if (canBreak_2)
+        {
+            GameObject Spike = GameObject.Find("break_2");
+            Destroy(Spike);
+        }
+        if (canBreak_3)
+        {
+            GameObject Spike = GameObject.Find("break_3");
+            Destroy(Spike);
+        }
+        if (canBreak_4)
+        {
+            GameObject Spike = GameObject.Find("break_4");
+            Destroy(Spike);
+        }
+
 
         if (canRotation_e1)
         {
@@ -198,6 +253,34 @@ public class level_4 : MonoBehaviour
         if (gameObject.name == "button_6" && collision.gameObject.tag == "Player")
         {
             canRotation_6 = true;
+        }
+        if (gameObject.name == "平移_7" && collision.gameObject.tag == "Player")
+        {
+            canMove_7 = true;
+        }
+        if (gameObject.name == "button_8" && collision.gameObject.tag == "Player")
+        {
+            canMove_8 = true;
+        }
+        if (gameObject.name == "平移_9" && collision.gameObject.tag == "Player")
+        {
+            canMove_9 = true;
+        }
+        if (gameObject.name == "button_9" && collision.gameObject.tag == "Player")
+        {
+            canBreak_1 = true;
+        }
+        if (gameObject.name == "button_10" && collision.gameObject.tag == "Player")
+        {
+            canBreak_2 = true;
+        }
+        if (gameObject.name == "button_11" && collision.gameObject.tag == "Player")
+        {
+            canBreak_3 = true;
+        }
+        if (gameObject.name == "button_12" && collision.gameObject.tag == "Player")
+        {
+            canBreak_4 = true;
         }
     }
 
