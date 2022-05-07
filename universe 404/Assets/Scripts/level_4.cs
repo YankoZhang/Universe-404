@@ -58,11 +58,20 @@ public class level_4 : MonoBehaviour
         }
         if (canRotation_1)
         {
+            if(hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
+            
             GameObject Spike = GameObject.Find("旋转_1");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 90), 1f * Time.deltaTime);
         }
         if (canRotation_2)
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("旋转_2");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, -90), 1f * Time.deltaTime);
         }
@@ -77,11 +86,19 @@ public class level_4 : MonoBehaviour
         }
         if (canRotation_4)
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("旋转_4");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 180), 1f * Time.deltaTime);
         }
-        if (canRotation_6)
+        if (canRotation_6 )
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("旋转_6");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 90), 1f * Time.deltaTime);
         }
@@ -160,31 +177,55 @@ public class level_4 : MonoBehaviour
 
         if (canRotation_e1)
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("俄罗斯方块_1");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 90*e1), 1f * Time.deltaTime);
         }
-        if (canRotation_e2)
+        if (canRotation_e2 )
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("俄罗斯方块_2");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 90 * e2), 1f * Time.deltaTime);
         }
-        if (canRotation_e3)
+        if (canRotation_e3 )
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("俄罗斯方块_3");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 90 * e3), 1f * Time.deltaTime);
         }
         if (canRotation_e4)
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("俄罗斯方块_4");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 90 * e4), 1f * Time.deltaTime);
         }
         if (canRotation_e5)
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("俄罗斯方块_5");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, -90), 1f * Time.deltaTime);
         }
         if (canRotation_e6)
         {
+            if (hitAudio.isPlaying == false)
+            {
+                hitAudio.Play();
+            }
             GameObject Spike = GameObject.Find("俄罗斯方块_6");
             Spike.transform.rotation = Quaternion.Lerp(Spike.transform.rotation, Quaternion.Euler(0, 0, 90), 1f * Time.deltaTime);
         }

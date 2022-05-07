@@ -994,6 +994,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &1589353881 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 1589353881, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1609312619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1608825888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,21 +1051,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1589353881, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6, type: 3}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 1983659594}
     - target: {fileID: 1584518758059076391, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
         type: 3}
-      propertyPath: DeadClip
+      propertyPath: vPlayer
       value: 
-      objectReference: {fileID: 8300000, guid: 2294e415416ef574c91fc937c8158afb, type: 3}
-    - target: {fileID: 1584518758059076391, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
-        type: 3}
-      propertyPath: bossAudio
-      value: 
-      objectReference: {fileID: 1609312621}
-    - target: {fileID: 1584518758059076391, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
-        type: 3}
-      propertyPath: AttackClip
-      value: 
-      objectReference: {fileID: 8300000, guid: cd87571c95e036644a04359efccaf111, type: 3}
+      objectReference: {fileID: 1589353881}
     - target: {fileID: 4636904114937847849, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
         type: 3}
       propertyPath: m_Name
@@ -1120,24 +1120,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8685070086339725955, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8685070086339725955, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6, type: 3}
---- !u!82 &1609312621 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8685070086339725955, guid: 0adb9ccdbbd65d54d9230b6a2a6c21b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1609312619}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1651312686
 GameObject:
   m_ObjectHideFlags: 0

@@ -6710,6 +6710,7 @@ GameObject:
   - component: {fileID: 1584518758059076391}
   - component: {fileID: 1609312621}
   - component: {fileID: 8685070086339725955}
+  - component: {fileID: 1589353881}
   m_Layer: 0
   m_Name: "\u79E9\u5E8F"
   m_TagString: Boss
@@ -6825,7 +6826,9 @@ MonoBehaviour:
   Health: 10
   bossAnim: {fileID: 4636904114937847848}
   attackType: 0
-  bossAudio: {fileID: 0}
+  bossAudio: {fileID: 8685070086339725955}
+  AttackClip: {fileID: 8300000, guid: cd87571c95e036644a04359efccaf111, type: 3}
+  DeadClip: {fileID: 8300000, guid: 2294e415416ef574c91fc937c8158afb, type: 3}
 --- !u!61 &1609312621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6862,9 +6865,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cd87571c95e036644a04359efccaf111, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1.2
   Loop: 0
   Mute: 0
@@ -6948,6 +6951,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!328 &1589353881
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636904114937847849}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: ea327f25ea86bed42bb482018b0c117d, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 1
+  m_TargetAudioSources:
+  - {fileID: 8685070086339725955}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1 &4886686905893389889
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Boss : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Boss : MonoBehaviour
     public AudioClip AttackClip;
     public AudioClip DeadClip;
     public static bool isDead;
-
+    public VideoPlayer vPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,10 @@ public class Boss : MonoBehaviour
                 bossAudio.clip = DeadClip;
                 bossAudio.Play();
             }
-
+            if (!vPlayer.isPlaying)
+            {
+                Invoke("Video", 7f);
+            }
             bossAnim.Play("À¿Õˆ");
         }
     }
@@ -104,5 +108,14 @@ public class Boss : MonoBehaviour
     public void StartShake()
     {
         CameraShake.Instance.canHorShake(0.03f, 2f);
+    }
+    public void Play()
+    {
+        
+    }
+
+    public void Video()
+    {
+        vPlayer.Play();
     }
 }

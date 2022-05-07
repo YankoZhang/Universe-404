@@ -73,6 +73,11 @@ public class GameManager : MonoBehaviour
     public bool isOver_444;
     public bool isOver_555;
     public bool isOver_666;
+    public bool isOver_777;
+    public bool isOver_888;
+    public bool isOver_999;
+
+
     public bool shineOver;
 
     /// <summary>
@@ -400,37 +405,54 @@ public class GameManager : MonoBehaviour
             {
                 GameObject.Find("Flowchart_555").SetActive(false);
             }
+            if (isOver_777)
+            {
+                GameObject.Find("Flowchart_777").SetActive(false);
+            }
+            if (isOver_888)
+            {
+                GameObject.Find("Flowchart_888").SetActive(false);
+            }
+            if (isOver_999)
+            {
+                GameObject.Find("Flowchart_999").SetActive(false);
+            }
             if (isOver_666)
             {
                 GameObject.Find("Flowchart_666").SetActive(false);
             }
-           
+
         } else if (scene.name == "3D")
         {
             // 3D 场景
+            
             if (canJump)
             {
-                GameObject.Find("computer").SetActive(false);
+                GameObject.Find("computer").transform.position = new Vector3(0, 0, 0);
             }
             if (canBBGM)
             {
-                GameObject.Find("耳机").SetActive(false);
+                GameObject.Find("耳机").transform.position = new Vector3(0, 0, 0);
             }
             if (canLight)
             {
-                GameObject.Find("眼镜").SetActive(false);
+                GameObject.Find("眼镜").transform.position = new Vector3(0, 0, 0);
             }
             if (canBGM)
             {
-                GameObject.Find("音响").SetActive(false);
+                GameObject.Find("音响").transform.position = new Vector3(0, 0, 0);
             }
             if (canSuperJump)
             {
-                GameObject.Find("耐克 ").SetActive(false);
+               GameObject.Find("耐克 ").transform.position = new Vector3(0, 0, 0);
             }
             if (canPlant)
             {
-                GameObject.Find("Plant").SetActive(false);
+                GameObject.Find("Plant").transform.position = new Vector3(0, 0, 0);
+            }
+            if (canAttack)
+            {
+                GameObject.Find("平底锅").transform.position = new Vector3(0,0,0);
             }
 
 

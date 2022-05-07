@@ -227,6 +227,18 @@ public class PlayerController2D : MonoBehaviour
 		{
 			GameManager.instance.isOver_666 = true;
 		}
+		if (collision.gameObject.name == "Flowchart_777")
+		{
+			GameManager.instance.isOver_777 = true;
+		}
+		if (collision.gameObject.name == "Flowchart_888")
+		{
+			GameManager.instance.isOver_888 = true;
+		}
+		if (collision.gameObject.name == "Flowchart_999")
+		{
+			GameManager.instance.isOver_999 = true;
+		}
 		if (collision.gameObject.name == "Flowchart_shine_1")
 		{
 			GameManager.instance.canShine = true;
