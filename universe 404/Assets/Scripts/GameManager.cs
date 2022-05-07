@@ -192,12 +192,7 @@ public class GameManager : MonoBehaviour
             picked = true;
             canBBGM = true;
         }
-        if (tag_name == "Nike")
-        {
-            picked = true;
-            PlayerController2D.m_JumpForce = 1000f;
-            canSuperJump = true;
-        }
+      
         if(tag_name == "glasses")
         {
             picked = true;
@@ -218,12 +213,12 @@ public class GameManager : MonoBehaviour
             picked = true;
             canAttack = true;
         }
-
+        /**
         if (picked)
         {
             obj.gameObject.SetActive(false);
         }
-
+        **/
         return picked;
     }
    
@@ -442,10 +437,7 @@ public class GameManager : MonoBehaviour
             {
                 GameObject.Find("音响").transform.position = new Vector3(0, 0, 0);
             }
-            if (canSuperJump)
-            {
-               GameObject.Find("耐克 ").transform.position = new Vector3(0, 0, 0);
-            }
+           
             if (canPlant)
             {
                 GameObject.Find("Plant").transform.position = new Vector3(0, 0, 0);

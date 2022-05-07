@@ -11,7 +11,7 @@ public class Interaction3D : MonoBehaviour
     //
     public GameObject computeOutline;
     public GameObject erjiOutline;
-    public GameObject nikeOutline;
+
     public GameObject glaOutline;
     public GameObject lanyaOutline;
     public GameObject plantOutline;
@@ -44,7 +44,6 @@ public class Interaction3D : MonoBehaviour
 
             var comp = _hittag == "computer" && canPick;
             var headphone = _hittag == "headset" && canPick;
-            var nike = _hittag == "Nike" && canPick;
             var glasses = _hittag == "glasses" && canPick;
             var lanya = _hittag == "buletooth" && canPick;
             var plant_ = _hittag == "plant" && canPick;
@@ -54,12 +53,12 @@ public class Interaction3D : MonoBehaviour
             // 启用对应高亮
             computeOutline.SetActive(comp);
             erjiOutline.SetActive(headphone);
-            nikeOutline.SetActive(nike);
+          
             glaOutline.SetActive(glasses);
             lanyaOutline.SetActive(lanya);
             plantOutline.SetActive(plant_);
             PanOutline.SetActive(pan);
-            pickup.SetActive(comp || headphone || nike || glasses || lanya || plant_ || pan);
+            pickup.SetActive(comp || headphone || glasses || lanya || plant_ || pan);
 
             // 进行互动
             if (Input.GetKey(KeyCode.E))
@@ -72,7 +71,7 @@ public class Interaction3D : MonoBehaviour
         }
         else
         {
-            nikeOutline.SetActive(false);
+        
             pickup.SetActive(false);
         }
         
