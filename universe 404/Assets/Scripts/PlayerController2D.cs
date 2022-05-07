@@ -38,7 +38,8 @@ public class PlayerController2D : MonoBehaviour
 	public static bool isDead;
 	public static bool isFall;
 
-	
+	public AudioSource m_Audio;
+	public AudioClip deadClip;
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -196,6 +197,8 @@ public class PlayerController2D : MonoBehaviour
 
 		if (collision.gameObject.tag == "Enemy")
 		{
+			m_Audio.clip = deadClip;
+			m_Audio.Play();
 			m_Life.Hit(collision.gameObject);
 			anim.SetBool("isDead", true);
 			Debug.Log("死亡");
